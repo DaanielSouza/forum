@@ -1,14 +1,13 @@
 package br.com.alura.forum.modelo;
 
+import br.com.alura.forum.controller.dto.AtualizacaoTopicoFormDto;
 import br.com.alura.forum.controller.dto.TopicoFormDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +43,11 @@ public class Topico {
 		this.mensagem = form.getMensagem();
 		this.curso = curso;
 		this.autor = user;
+	}
+
+	public void atualizarTopico(AtualizacaoTopicoFormDto at){
+		this.titulo = at.getTitulo();
+		this.mensagem = at.getMensagem();
 	}
 
 	@Override
