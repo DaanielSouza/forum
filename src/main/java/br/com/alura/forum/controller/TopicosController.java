@@ -18,7 +18,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import br.com.alura.forum.controller.dto.TopicoDto;
 import org.springframework.web.util.UriComponentsBuilder;
-
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.Optional;
@@ -36,7 +35,6 @@ public class TopicosController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @Cacheable(value = "listaTopicos")
     @GetMapping
     public ResponseEntity<Page<TopicoDto>> lista(@PageableDefault Pageable pageable, String nomeCurso) {
         if (nomeCurso == null) {
